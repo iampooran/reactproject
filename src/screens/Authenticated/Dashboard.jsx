@@ -1,6 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import axiosInstance from '../../utils/axios'
 import Delete from './Delete'
+import { Link } from 'react-router-dom'
+import Update from './Update'
 
 const Dashboard = () => {
     const [post,setPost] = useState([]) 
@@ -24,9 +26,11 @@ const Dashboard = () => {
         
         {post.map((posts)=>{
             return <div>
-                <hr />
+                    <hr />
                 {posts.title}
                 <Delete id={posts.id}/>   
+                <Link to={`/updateuser/${posts.id}`}><button>Update</button></Link>
+                {/* <Link to={`updateuser/${post.id}`}>Update</Link> */}
             </div>
         })}
         
